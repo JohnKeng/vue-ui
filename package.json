@@ -1,0 +1,23 @@
+{
+  "name": "vue-wheel",
+  "version": "0.0.1",
+  "description": "自造組件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnKeng/vue-demo.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "John Keng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JohnKeng/vue-demo/issues"
+  },
+  "homepage": "https://github.com/JohnKeng/vue-demo#readme"
+}
