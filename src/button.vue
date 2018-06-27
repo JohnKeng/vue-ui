@@ -1,15 +1,16 @@
 <template>
-    <button class="my-button">
-        <slot></slot>
+    <button class="my-btn" :class="{[`icon-${iconPosition}`]:true}">
+        <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg>
+        <slot class="content"></slot>
     </button>
 </template>
 <script>
     export default{
-
+        props: ['icon', 'iconPosition']
     }
 </script>
 <style lang="scss">
-    .my-button {
+    .my-btn {
         font-size: var(--font-size);
         height: var(--button-height);
         padding: 0 1em;
@@ -26,7 +27,14 @@
         &:focus {
             outline: none;
         }
-        & .icon{ width: 1em;height: 1em;;}
-    }
-    
+        & .icon{ width: 1em;height: 1em; }
+
+        > .content { order: 2; }
+        > .icon { order: 1;margin-right: .3em; }
+
+        &.icon-right{
+            > .content { order: 1; }
+            > .icon { order: 2;margin-right: 0;margin-left: .3em;  }
+        }
+    } 
 </style>
