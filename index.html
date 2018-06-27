@@ -13,12 +13,12 @@
             box-sizing: border-box;
         }
         html {
-            --button-height: 32px;
             --font-size: 16px;
+            --color: rgb(5, 5, 5);
+            --button-height: 32px;
             --button-bg: white;
             --button-active-bg: #eee;
-            --border-radius: 4px;
-            --color: #333;
+            --border-radius: 1px;
             --border-color: #999;
             --border-color-hover: #666;
         }
@@ -33,9 +33,14 @@
 <body>
 
 <div id="app">
-    <g-button></g-button>
+    <my-button><svg class="icon"><use xlink:href="#i-like"></use></svg> 按讚</my-button>
+    <my-button><svg class="icon"><use xlink:href="#i-setting"></use></svg> 設定</my-button>
+    <my-button><svg class="icon"><use xlink:href="#i-download"></use></svg> 下載</my-button>
+    <my-button><svg class="icon"><use xlink:href="#i-left"></use></svg> 左</my-button>
+    <my-button><svg class="icon"><use xlink:href="#i-right"></use></svg> 右</my-button>
 </div>
 
 <script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_722402_k82d436bixa.js"></script>
 </body>
 </html>
