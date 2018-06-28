@@ -13,7 +13,7 @@
 所有組件變數
 ```
 html {
-    --font-size: 16px;
+    --font-size: 14px;
     --color: rgb(5, 5, 5);
     --button-height: 32px;
     --button-bg: white;
