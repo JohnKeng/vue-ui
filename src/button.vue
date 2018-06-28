@@ -1,11 +1,11 @@
 <template>
     <button class="my-btn" :class="{[`icon-${iconPosition}`]:true}">
-        <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg>
-        <slot class="content"></slot>
+        <my-icon v-if="icon" :name="icon" class="icon" />
+        <div class="content"><slot/></div>
     </button>
 </template>
 <script>
-    export default{
+    module.exports = {
         props: {
             icon: {
                 type: String,
@@ -24,7 +24,7 @@
     .my-btn {
         font-size: var(--font-size);
         height: var(--button-height);
-        padding: 0 1em;
+        padding: 0 1.6em;
         border-radius: var(--border-radius);
         border: 1px solid var(--border-color);
         background: var(--button-bg);
@@ -40,7 +40,7 @@
         }
         & .icon{ width: 1em;height: 1em; }
 
-        > .content { order: 2; }
+        > .content { order: 2; display: inline-block; }
         > .icon { order: 1;margin-right: .3em; }
 
         &.icon-right{
