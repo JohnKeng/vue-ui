@@ -23,3 +23,7 @@ html {
     --border-color-hover: #666;
     }
 ```
+
+## Quick start
+- Clone the repo: `git clone https://github.com/JohnKeng/vue-ui.git`.
+Run `npx parcel --no-cache`.
