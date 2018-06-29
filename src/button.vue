@@ -53,8 +53,11 @@
         }
         & .icon{ margin-right: .3em;width: 1.3em;height: 1.3em; }
 
+        > .content { order: 2;display: inline-block; }
+        > .icon { order: 1; }
+
         &.icon-right{
-            > .content { order: 1;display: inline-block; }
+            > .content { order: 1;}
             > .icon { order: 2;margin-right: 0;margin-left: .3em;  }
         }
     } 
