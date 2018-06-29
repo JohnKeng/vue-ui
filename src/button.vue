@@ -1,34 +1,47 @@
 <template>
-    <button class="my-btn" :class="{[`icon-${iconPosition}`]:true}">
-        <my-icon v-if="icon" :name="icon" class="icon" />
-        <div class="content"><slot/></div>
+    <button class="my-btn" :class="{[`icon-${iconPosition}`]:true}" @click="$emit('click')">
+        <my-icon v-if="icon && !loading" :name="icon" class="icon"></my-icon>
+        <my-icon v-if="loading" name="loading" animation="spin" class="icon"></my-icon>
+        <div class="content"><slot></slot></div>
     </button>
 </template>
 <script>
-    module.exports = {
+   export default {
         props: {
-            icon: {
-                type: String,
-            },
-            iconPosition:{
-                type: String,
-                default: 'left',
-                validator(value){
-                   return value === 'left' || value === 'right'
+                icon: {
+                    type: String,
+                },
+                loading: {
+                    type: Boolean,
+                    default: false,
+                },
+                iconPosition:{
+                    type: String,
+                    default: 'left',
+                    validator(value){
+                        if(value !== 'left' && value !== 'right' ){
+                            return false
+                        } else {
+                            return true
+                        }
+                    }
                 }
-            }
         }
     }
 </script>
 <style lang="scss">
     .my-btn {
-        font-size: var(--font-size);
-        height: var(--button-height);
-        padding: 0 1.6em;
         border-radius: var(--border-radius);
         border: 1px solid var(--border-color);
         background: var(--button-bg);
+        font-size: var(--font-size);
+        height: var(--button-height);
+        padding: 0 1.6em;
         cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
         &:hover {
             border-color: var(--border-color-hover);
         }
@@ -38,13 +51,10 @@
         &:focus {
             outline: none;
         }
-        & .icon{ width: 1em;height: 1em; }
-
-        > .content { order: 2; display: inline-block; }
-        > .icon { order: 1;margin-right: .3em; }
+        & .icon{ margin-right: .3em;width: 1.3em;height: 1.3em; }
 
         &.icon-right{
-            > .content { order: 1; }
+            > .content { order: 1;display: inline-block; }
             > .icon { order: 2;margin-right: 0;margin-left: .3em;  }
         }
     } 
