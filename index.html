@@ -22,11 +22,17 @@
             --border-color: #999;
             --border-color-hover: #666;
         }
+        body {
+            font-size: var(--font-size);
+        }
         #app {
             margin: 20px;
         }
-        body {
-            font-size: var(--font-size);
+        h2{
+            margin-bottom: 1em;
+        }
+        .my-row{
+            margin: 1em 0;
         }
     </style>
     <style>
@@ -37,7 +43,7 @@
         .my-btn.white{
             border-radius: 0;
             border: none;
-            border: 1px solid black;
+            border: 1px solid #000000;
         }
         .my-btn.white:hover {
             color: white;
@@ -49,24 +55,35 @@
     </style>
 </head>
 <body>
-    
     <div id="app">
         <h2>BOTTON</h2>
-        <div style="margin: 2em 0;"><my-button class="white">button</my-button></div>
-    
-        <my-button icon="like">按讚</my-button>
-        <my-button icon="setting">設定</my-button>
-        <my-button icon="download" :loading="loadingSwich" @click="loadingSwich = !loadingSwich">下載點擊效果</my-button>
-        
-        <div style="margin: 2em 0;">
+        <div class="my-row">
+            <my-button class="white">button</my-button>
+        </div>
+        <div class="my-row">
+            <my-button icon="like">按讚</my-button>
+            <my-button icon="setting">設定</my-button>
+            <my-button icon="download" :loading="loadingSwich" @click="loadingSwich = !loadingSwich">下載點擊效果</my-button>
+        </div>  
+        <div class="my-row">
             <my-button-group>
             <my-button icon="left">上一頁</my-button>
             <my-button>更多</my-button>
             <my-button icon="right" icon-position="right">下一頁</my-button>
             </my-button-group>
         </div>
+
+        <h2>INPUT</h2>
+        <div class="my-row">
+            <my-input v-model="message"></my-input>
+            <p>{{message}}</p>
+            <button @click="message+=1">+1</button>
+        </div>
+
         <h2>ICON</h2>
-        <div style="margin: 2em 0;"><my-icon class="the-icon" name="loading" animation="spin"></my-icon></div>
+        <div class="my-row">
+            <my-icon class="the-icon" name="loading" animation="spin"></my-icon>
+        </div>
     </div>
     
     <script src="./src/app.js"></script>
